@@ -11,8 +11,8 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import Select from "@mui/material/Select";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
+import Brightness2Icon from "@mui/icons-material/Brightness2";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import { useTranslation } from "react-i18next";
 import { FlagIcon } from "react-flag-kit";
 
@@ -153,7 +153,7 @@ function TopBar({ darkMode, toggleTheme }) {
             </Box>
 
             <IconButton sx={{ ml: 1 }} onClick={toggleTheme} color="inherit">
-              {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+              {darkMode ? <LightModeIcon /> : <Brightness2Icon />}
             </IconButton>
             <Box sx={{ display: "flex", alignItems: "center", ml: 2 }}>
               <Select

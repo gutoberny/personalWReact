@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
 import TopBar from "./components/TopBar";
+import PersonalCard from "./components/PersonalCard";
 import "./App.css";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true); // Define o tema inicial como escuro
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
   const lightTheme = createTheme({
     palette: {
       mode: "light",
@@ -57,14 +67,15 @@ function App() {
 
   const toggleTheme = () => {
     setDarkMode(!darkMode);
-    document.documentElement.classList.toggle("dark", !darkMode);
   };
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
-      <TopBar darkMode={darkMode} toggleTheme={toggleTheme} />
-      <div style={{ padding: 16 }}></div>
+      {/* <TopBar darkMode={darkMode} toggleTheme={toggleTheme} /> */}
+      <div style={{ padding: 16, marginTop: 70 }}>
+        <PersonalCard />
+      </div>
     </ThemeProvider>
   );
 }
